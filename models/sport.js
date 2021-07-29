@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Sport extends Model {
     /**
@@ -11,16 +9,25 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Sport.belongsToMany(models.Country, { through: "models.Athlete" });
     }
-  };
-  Sport.init({
-    name: DataTypes.STRING,
-    logo: DataTypes.STRING,
-    status: DataTypes.STRING,
-    venue: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Sport',
-  });
+  }
+  Sport.init(
+    {
+      name: DataTypes.STRING,
+      logo: DataTypes.STRING,
+      status: DataTypes.STRING,
+      venue: DataTypes.STRING,
+    },
+    {
+      hooks: {
+        beforeCreate(sport, options) {
+          sport.status = "Available";
+        },
+      },
+      sequelize,
+      modelName: "Sport",
+    }
+  );
   return Sport;
 };

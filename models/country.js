@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Country extends Model {
     /**
@@ -11,15 +9,58 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Country.belongsToMany(models.Sport, { through: "models.Athlete" });
     }
-  };
-  Country.init({
-    name: DataTypes.STRING,
-    code: DataTypes.STRING,
-    flagImage: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Country',
-  });
+  }
+  Country.init(
+    {
+      name: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            message: "Country name cannot be empty!",
+          },
+        },
+      },
+      code: DataTypes.STRING,
+      flagImage: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            message: "Flag Image cannot be empty!",
+          },
+        },
+      },
+    },
+    {
+      hooks: {
+        beforeCreate(country, options) {
+          let countryName = country.name;
+          let countryCode = ["INA", "GER", "JPN", "ITA", "NED"];
+          let name = ["Indonesia", "Germany", "Japan", "Italy", "Netherlands"];
+
+          for (let i = 0; i < name.length; i++) {
+            if (countryName === name[i]) {
+              country.code = countryCode[i];
+            }
+          }
+        },
+
+        beforeUpdate(country, options) {
+          let countryName = country.name;
+          let countryCode = ["INA", "GER", "JPN", "ITA", "NED"];
+          let name = ["Indonesia", "Germany", "Japan", "Italy", "Netherlands"];
+
+          for (let i = 0; i < name.length; i++) {
+            if (countryName === name[i]) {
+              country.code = countryCode[i];
+            }
+          }
+        },
+      },
+      sequelize,
+      modelName: "Country",
+    }
+  );
   return Country;
 };

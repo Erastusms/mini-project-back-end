@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Weightlifting",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/WLF.png",
+        "status": "Available",
+        "venue": "Tokyo International Forum"
+    },
+    {
+        "name": "Archery",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/ARC.png",
+        "status": "Available",
+        "venue": "Yumenoshima Park Archery Field"
+    },
+    {
+        "name": "Athletics",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/ATH.png",
+        "status": "Available",
+        "venue": "Sapporo Odori Park"
+    },
+    {
+        "name": "Karate",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/KTE.png",
+        "status": "Available",
+        "venue": "Nippon Budokan"
+    },
+    {
+        "name": "Tennis",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/TEN.png",
+        "status": "Available",
+        "venue": "Ariake Tennis Park"
+    }
+]
