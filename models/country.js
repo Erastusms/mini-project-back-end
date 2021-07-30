@@ -14,50 +14,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   Country.init(
     {
-      name: {
-        type: DataTypes.STRING,
-        validate: {
-          notEmpty: {
-            message: "Country name cannot be empty!",
-          },
-        },
-      },
+      name: DataTypes.STRING,
       code: DataTypes.STRING,
-      flagImage: {
-        type: DataTypes.STRING,
-        validate: {
-          notEmpty: {
-            message: "Flag Image cannot be empty!",
-          },
-        },
-      },
+      flagImage: DataTypes.STRING,
     },
     {
-      hooks: {
-        beforeCreate(country, options) {
-          let countryName = country.name;
-          let countryCode = ["INA", "GER", "JPN", "ITA", "NED"];
-          let name = ["Indonesia", "Germany", "Japan", "Italy", "Netherlands"];
-
-          for (let i = 0; i < name.length; i++) {
-            if (countryName === name[i]) {
-              country.code = countryCode[i];
-            }
-          }
-        },
-
-        beforeUpdate(country, options) {
-          let countryName = country.name;
-          let countryCode = ["INA", "GER", "JPN", "ITA", "NED"];
-          let name = ["Indonesia", "Germany", "Japan", "Italy", "Netherlands"];
-
-          for (let i = 0; i < name.length; i++) {
-            if (countryName === name[i]) {
-              country.code = countryCode[i];
-            }
-          }
-        },
-      },
       sequelize,
       modelName: "Country",
     }

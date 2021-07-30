@@ -1,32 +1,152 @@
 [
     {
-        "name": "Weightlifting",
-        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/WLF.png",
-        "status": "Available",
-        "venue": "Tokyo International Forum"
-    },
-    {
-        "name": "Archery",
-        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/ARC.png",
-        "status": "Available",
-        "venue": "Yumenoshima Park Archery Field"
-    },
-    {
         "name": "Athletics",
         "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/ATH.png",
         "status": "Available",
-        "venue": "Sapporo Odori Park"
+        "venue": "Sapporo Odori Park",
+        "quota": 8,
+        "day": "Friday",
+        "date": "30 Jul 2021",
+        "detail": "The athletics track at the Olympic Stadium is a 400m oval. For all track events the finish line is in the same place, at the end of the ‘home straight’."
+    },
+    {
+        "name": "Badminton",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/BDM.png",
+        "status": "Available",
+        "venue": "Musashino Forest Sport Plaza",
+        "quota": 8,
+        "day": "Saturday",
+        "date": "24 Jul 2021",
+        "detail": "Unlike other net sports, badminton uses a shuttlecock instead of a ball. A shuttlecock is an open conical object formed by goose feathers embedded in a rounded cork base."
+    },
+    {
+        "name": "Basketball",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/BKB.png",
+        "status": "Available",
+        "venue": "Saitama Super Arena",
+        "quota": 16,
+        "day": "Sunday",
+        "date": "25 Jul 2021",
+        "detail": "Basketball is played by two teams of five players on a 28mx15m court with players looking to score by shooting the ball into a basket."
+    },
+    {
+        "name": "Boxing",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/BOX.png",
+        "status": "Available",
+        "venue": "Kokugikan Arena",
+        "quota": 8,
+        "day": "Saturday",
+        "date": "24 Jul 2021",
+        "detail": "Two athletes square up to each other in a ring, and victory is gained by the athlete who more successfully lands blows to their opponent's head and torso."
+    },
+    {
+        "name": "Cycling Road",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/CRD.png",
+        "status": "Available",
+        "venue": "Fuji International Speedway",
+        "quota": 10,
+        "day": "Saturday",
+        "date": "24 Jul 2021",
+        "detail": "Cycling road has been included at nearly all Olympic Games since 1896 apart from a 12-year period where it was excluded before returning for Stockholm 1912."
+    },
+    {
+        "name": "Equestrian",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/EQU.png",
+        "status": "Available",
+        "venue": "Equestrian Park",
+        "quota": 6,
+        "day": "Friday",
+        "date": "23 Jul 2021",
+        "detail": "Equestrian featured in the Paris 1900 Games, but its official debut took place at Stockholm 1912. Individual and team medals are awarded in each of the three equestrian disciplines."
+    },
+    {
+        "name": "Football",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/FBL.png",
+        "status": "Available",
+        "venue": "Tokyo Stadium",
+        "quota": 16,
+        "day": "Wednesday",
+        "date": "21 Jul 2021",
+        "detail": "In football, teams of 11 players compete to score goals by advancing the ball into their opponent's goal. Since all that's needed to play is a ball, the sport is enjoyed worldwide on every continent."
+    },
+    {
+        "name": "Golf",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/GLF.png",
+        "status": "Available",
+        "venue": "Kasumigaseki Country Club",
+        "quota": 4,
+        "day": "Thursday",
+        "date": "29 Jul 2021",
+        "detail": "Golf consists of striking a ball into a series of holes using a selection of clubs and counting the number of strokes it takes to do so."
     },
     {
         "name": "Karate",
         "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/KTE.png",
         "status": "Available",
-        "venue": "Nippon Budokan"
+        "venue": "Nippon Budokan",
+        "quota": 8,
+        "day": "Thursday",
+        "date": "5 Aug 2021",
+        "detail": "Karate's quest to secure a place on the Olympic programme dates back to the 1970s."
+    },
+    {
+        "name": "Shooting",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/SHO.png",
+        "status": "Available",
+        "venue": "Asaka Shooting Range",
+        "quota": 8,
+        "day": "Thursday",
+        "date": "22 Jul 2021",
+        "detail": "In shooting, there are three disciplines; rifle and pistol where athletes shoot at stationary targets in a range and shotgun which involves hitting moving targets."
+    },
+    {
+        "name": "Swimming",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/SWM.png",
+        "status": "Available",
+        "venue": "Tokyo Aquatics Centre",
+        "quota": 12,
+        "day": "Saturday",
+        "date": "24 Jul 2021",
+        "detail": "Swimmers compete to achieve the fastest time while covering a designated distance using a predetermined stroke (freestyle, backstroke, breaststroke or butterfly)."
+    },
+    {
+        "name": "Taekwondo",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/TKW.png",
+        "status": "Available",
+        "venue": "Makuhari Messe Hall",
+        "quota": 8,
+        "day": "Saturday",
+        "date": "24 Jul 2021",
+        "detail": "For some 2,000 years, a range of martial arts were practised on the Korean peninsula. During the early 20th century, taekwondo became the dominant form of martial art practised in Korea."
     },
     {
         "name": "Tennis",
         "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/TEN.png",
         "status": "Available",
-        "venue": "Ariake Tennis Park"
+        "venue": "Ariake Tennis Park",
+        "quota": 12,
+        "day": "Saturday",
+        "date": "24 Jul 2021",
+        "detail": "Tennis appeared at the first modern Olympic Games in 1896 but was dropped from the programme after the Paris 1924 Games."
+    },
+    {
+        "name": "Volleyball",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/VVO.png",
+        "status": "Available",
+        "venue": "Ariake Arena",
+        "quota": 16,
+        "day": "Saturday",
+        "date": "24 Jul 2021",
+        "detail": "Volleyball is played by two teams on a 18m x 9m court divided by a net (2.43m high for men, 2.24m for women). Each team at the Olympic Games is allowed up to 12 players, but only 6 play on court."
+    },
+    {
+        "name": "Weightlifting",
+        "logo": "https://olympics.com/tokyo-2020/olympic-games/resOG2020-/img/sports/WRE.png",
+        "status": "Available",
+        "venue": "Tokyo International Forum",
+        "quota": 8,
+        "day": "Saturday",
+        "date": "24 Jul 2021",
+        "detail": "Weightlifting as an organised sport also has a long history and was included in the programme at the very first modern Olympic Games, Athens 1896."
     }
 ]

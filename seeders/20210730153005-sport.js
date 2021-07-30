@@ -11,14 +11,18 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    let sportJSON = JSON.parse(fs.readFileSync("./seeders/sport.json", "utf8"));
-    let sportData = sportJSON.map((sports) => {
-      const { name, logo, status, venue } = sports;
+    let sports = JSON.parse(fs.readFileSync("./seeders/sport.json", "utf8"));
+    let sportData = sports.map((sport) => {
+      const { name, logo, status, venue, quota, day, date, detail } = sport;
       return {
         name,
         logo,
         status,
         venue,
+        quota,
+        day,
+        date,
+        detail,
         createdAt: new Date(),
         updatedAt: new Date(),
       };

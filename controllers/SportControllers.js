@@ -6,7 +6,7 @@ class SportControllers {
       let sports = await Sport.findAll({
         order: [["id", "ASC"]],
       });
-      res.status(200).json(sports);
+      res.status(200).render("./sport/sport.ejs", { sports });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -16,11 +16,15 @@ class SportControllers {
 
   static async addSport(req, res) {
     try {
-      const { name, logo, venue } = req.body;
+      const { name, logo, venue, quota, day, date, detail } = req.body;
       let sports = await Sport.create({
         name,
         logo,
         venue,
+        quota,
+        day,
+        date,
+        detail,
       });
       res.status(201).json(sports);
     } catch (err) {
@@ -33,12 +37,16 @@ class SportControllers {
   static async updateSport(req, res) {
     try {
       const id = +req.params.id;
-      const { name, logo, venue } = req.body;
+      const { name, logo, venue, quota, day, date, detail } = req.body;
       let result = await Sport.update(
         {
           name,
           logo,
           venue,
+          quota,
+          day,
+          date,
+          detail,
         },
         {
           where: { id },
@@ -56,6 +64,20 @@ class SportControllers {
     }
   }
 
+  static async detailSport(req, res) {
+    try {
+      const sportName = req.params.sportName;
+      let sports = await Sport.findAll({
+        where: {
+          name: sportName,
+        },
+      });
+      res.status(200).render("./sport/sportDetail.ejs", { sports });
+      // res.status(200).json(sports)
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
   static async removeSport(req, res) {
     try {
       const id = +req.params.id;

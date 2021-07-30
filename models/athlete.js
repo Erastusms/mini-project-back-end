@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Athlete extends Model {
     /**
@@ -11,33 +9,23 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Athlete.belongsTo(models.Country)
-      Athlete.belongsTo(models.Sport)
+      Athlete.belongsTo(models.Country);
+      Athlete.belongsTo(models.Sport);
     }
-  };
-  Athlete.init({
-    first_name: {
-      type: DataTypes.STRING,
-      validate: {
-        notEmpty: {
-          message: "First name cannot be empty!"
-        }
-      }
+  }
+  Athlete.init(
+    {
+      first_name: DataTypes.STRING,
+      last_name: DataTypes.STRING,
+      gender: DataTypes.STRING,
+      age: DataTypes.INTEGER,
+      CountryId: DataTypes.INTEGER,
+      SportId: DataTypes.INTEGER,
     },
-
-    last_name: {
-      type: DataTypes.STRING,
-      validate: {
-        notEmpty: {
-          message: "Last name cannot be empty!"
-        }
-      }
-    },
-    CountryId: DataTypes.INTEGER,
-    SportId: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Athlete',
-  });
+    {
+      sequelize,
+      modelName: "Athlete",
+    }
+  );
   return Athlete;
 };

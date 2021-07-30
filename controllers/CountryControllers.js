@@ -6,7 +6,7 @@ class CountryControllers {
       let countries = await Country.findAll({
         order: [["id", "ASC"]],
       });
-      res.status(200).json(countries);
+      res.status(200).render("./country/countries.ejs", { countries });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -31,42 +31,48 @@ class CountryControllers {
 
   static async updateCountry(req, res) {
     try {
-      const id = +req.params.id
-      const { name, flagImage } = req.body
-      let result = await Country.update({
-        name, flagImage
-      }, {
-        where: { id },
-        individualHooks: true,
-      })
+      const id = +req.params.id;
+      const { name, flagImage } = req.body;
+      let result = await Country.update(
+        {
+          name,
+          flagImage,
+        },
+        {
+          where: { id },
+          individualHooks: true,
+        }
+      );
 
-      result[0] === 1 ? res.status(200).json({
-        message: `Id ${id} success to update`
-      }) : res.status(400).json({
-        message: `id ${id} failed to update`
-    })
-    }
-    catch(err) {
-      res.status(500).json(err)
+      result[0] === 1
+        ? res.status(200).json({
+            message: `Id ${id} success to update`,
+          })
+        : res.status(400).json({
+            message: `id ${id} failed to update`,
+          });
+    } catch (err) {
+      res.status(500).json(err);
     }
   }
 
   static async removeCountry(req, res) {
     try {
-      const id = +req.params.id
+      const id = +req.params.id;
 
       let result = await Country.destroy({
-        where: { id }
-      })
+        where: { id },
+      });
 
-      result === 1 ? res.status(200).json({
-        message: `Id ${id} has been removed`
-      }) : res.status(400).json({
-        message: `Id ${id} failed to remove`
-      })
-    }
-    catch(err) {
-      res.status(500).json(err)
+      result === 1
+        ? res.status(200).json({
+            message: `Id ${id} has been removed`,
+          })
+        : res.status(400).json({
+            message: `Id ${id} failed to remove`,
+          });
+    } catch (err) {
+      res.status(500).json(err);
     }
   }
 }

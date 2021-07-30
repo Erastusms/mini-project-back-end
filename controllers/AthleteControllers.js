@@ -8,17 +8,26 @@ class AthleteControllers {
         order: [["id", "ASC"]],
       });
 
-      res.status(200).json(athletes);
+      res.status(200).render("./athlete/athlete.ejs", { athletes });
+      // res.status(200).json(athletes)
     } catch (err) {
       res.status(500).json(err);
     }
   }
 
-  static addAthletePage(req, res) {}
+  static addAthletePage(req, res) {
+    res.status(200).render("./athlete/athleteAdd.ejs");
+  }
 
   static async addAthlete(req, res) {
     try {
-      const CountryId = +req.params.id;
+      const countryName = req.params.countryName;
+      const countries = await Country.findOne({
+        where: {
+          name: countryName,
+        },
+      });
+
       const { first_name, last_name, sport_name } = req.body;
       const sports = await Sport.findOne({
         where: {
@@ -27,6 +36,7 @@ class AthleteControllers {
       });
 
       let SportId = sports.id;
+      let CountryId = countries.id;
 
       let result = await Athlete.create({
         first_name,
@@ -70,6 +80,51 @@ class AthleteControllers {
         : res.status(400).json({
             message: `id ${id} failed to update`,
           });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
+
+  static async showAthleteByCountryName(req, res) {
+    try {
+      const countryName = req.params.countryName;
+      let countries = await Country.findOne({
+        where: {
+          name: countryName,
+        },
+      });
+
+      const CountryId = countries.id;
+
+      let athletes = await Athlete.findAll({
+        where: {
+          CountryId,
+        },
+        include: [Country, Sport],
+      });
+      res.status(200).render("./athlete/athlete.ejs", { athletes });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
+
+  static async showAthleteBySportName(req, res) {
+    try {
+      const countryName = req.params.countryName;
+      let countries = await Country.findOne({
+        where: {
+          name: countryName,
+        },
+      });
+
+      const CountryId = countries.id;
+      let athletes = await Athlete.findAll({
+        where: {
+          CountryId,
+        },
+        include: [ Country, Sport],
+      });
+      res.status(200).render("./athlete/athleteBySport.ejs", { athletes });
     } catch (err) {
       res.status(500).json(err);
     }

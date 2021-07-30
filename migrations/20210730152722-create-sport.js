@@ -20,6 +20,18 @@ module.exports = {
       venue: {
         type: Sequelize.STRING
       },
+      quota: {
+        type: Sequelize.INTEGER
+      },
+      day: {
+        type: Sequelize.STRING
+      },
+      date: {
+        type: Sequelize.STRING
+      },
+      detail: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

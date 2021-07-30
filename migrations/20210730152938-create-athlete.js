@@ -14,6 +14,12 @@ module.exports = {
       last_name: {
         type: Sequelize.STRING
       },
+      gender: {
+        type: Sequelize.STRING
+      },
+      age: {
+        type: Sequelize.INTEGER
+      },
       CountryId: {
         type: Sequelize.INTEGER
       },
