@@ -13,47 +13,67 @@
     />
     <title>Country</title>
     <style>
-      img {
-        height: 24px;
-        width: 32px;
+      body {
+        height: 1000px;
       }
     </style>
   </head>
   <body>
-    <h1 class="text-center display-4">LIST Country</h1>
+    <h1 class="text-center display-4">LIST COUNTRY</h1>
+    <a href="/country/add">+Add Country</a>
+    <a href="/">Return to Home</a>
     <hr />
     <table class="table table-hover text-center">
       <thead>
         <tr>
-          <th>Country</th>
+          <th>CodeName</th>
           <th>Country Name</th>
-          <th>Tambah Atlit</th>
-          <th>Lihat Cabor yang diikuti</th>
-          <th>Lihat atlitnya</th>
+          <th>Sports</th>
+          <th>Athlete</th>
+          <th>Add Athlete</th>
+          <th>Resign</th>
         </tr>
       </thead>
       <tbody>
         <% countries.forEach((country) => { %>
         <tr>
           <td>
-            <img src="<%= country.flagImage %>" class="rounded" /> <%=
-            country.code %>
+            <img
+              src="<%= country.flagImage %>"
+              class="rounded"
+              height="24px"
+              width="32px"
+            />
+            <%= country.code %>
           </td>
           <td><%= country.name %></td>
           <td>
-            <a href="/athlete/<%= country.name %>/add"
-              ><img src="https://icon-library.com/images/ui_2-512.png"
-            /></a>
-          </td>
-          <td>
-            <a class="btn btn-primary btn-lg" href="/athlete/<%= country.name %>/sport" role="button"
+            <a
+              class="btn btn-primary btn-lg"
+              href="/athlete/<%= country.name %>/sport"
+              role="button"
               >See Sports</a
             >
           </td>
           <td>
-            <a class="btn btn-primary btn-lg" href="/athlete/<%= country.name %>/" role="button"
+            <a
+              class="btn btn-primary btn-lg"
+              href="/athlete/<%= country.name %>/"
+              role="button"
               >See Athlete</a
             >
+          </td>
+          <td>
+            <a href="/athlete/<%= country.name %>/add"
+              ><img src="https://icon-library.com/images/ui_2-512.png" height="28px"
+              width="28px"
+            /></a>
+          </td>
+          <td>
+            <a href="/country/delete/<%= country.id %>"
+              ><img src="https://www.pinclipart.com/picdir/big/126-1261691_logo-eisenbahn-png-minus-button-icon-png-clipart.png" height="24px"
+              width="24px"
+            /></a>
           </td>
         </tr>
         <% }) %>

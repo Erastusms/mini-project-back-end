@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -11,15 +11,39 @@
       crossorigin="anonymous"
     />
     <title>Sport Detail</title>
-</head>
-<body>
-    <h1>JUDUL :</h1>
-    <h1> <%= sports[0].name %> </h1>
-    <h4>Overview :</h4>
-    <h4> <%= sports[0].detail %></h4>
-    <h4>Venue :</h4>
-    <h4> <%= sports[0].venue %></h4>
-    <h4>Start Date :</h4>
-    <h4> <%= sports[0].day %>, <%= sports[0].date %></h4>
-</body>
+  </head>
+  <body>
+    <center><h1 class="pt-5"><%= sports.name %></h1></center>
+    <center><a href="/">Return to Home</a></center>
+    <br /><br />
+    <div class="container">
+      <div class="card text-white">
+        <div class="card-header bg-success">Overview</div>
+        <div class="card-body text-dark"><%= sports.detail %></div>
+      </div>
+      <br />
+      <br />
+      <div class="card text-white">
+        <div class="card-header bg-secondary">Venue</div>
+        <div class="card-body text-dark"><%= sports.venue %></div>
+      </div>
+      <br />
+      <div class="card text-white">
+        <div class="card-header bg-danger">Start Date</div>
+        <div class="card-body text-dark">
+          <%= sports.day %>, <%= sports.date %>
+        </div>
+      </div>
+      <br />
+    </div>
+    <br />
+    <center>
+      <a
+        class="btn btn-primary btn-lg"
+        role="button"
+        href="/athlete/participant/<%= sports.name %>"
+        >See the participant</a
+      >
+    </center>
+  </body>
 </html>

@@ -15,10 +15,41 @@ module.exports = (sequelize, DataTypes) => {
   }
   Athlete.init(
     {
-      first_name: DataTypes.STRING,
-      last_name: DataTypes.STRING,
-      gender: DataTypes.STRING,
-      age: DataTypes.INTEGER,
+      first_name: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+        },
+      },
+      last_name: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+        },
+      },
+      gender: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+        },
+      },
+      age: {
+        type: DataTypes.INTEGER,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+          isNumeric: {
+            message: "This field must be a number",
+          },
+        },
+      },
       CountryId: DataTypes.INTEGER,
       SportId: DataTypes.INTEGER,
     },

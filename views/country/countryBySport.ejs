@@ -11,25 +11,26 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <title>List Sport</title>
+    <title>List Participant</title>
   </head>
   <body>
     
-    <h1 class="text-center display-4">List Sport <%= countries.name %></h1>
-    <center><a href="/">Return to Home</a></center>
+    <h1 class="text-center display-4">
+      Participant of <%= sports.name %>
+    </h1>
+    <center><a href="/sport">Return to Sport</a></center>
     <hr />
-    <table class="table table-hover">
+    <table class="table table-hover text-center">
       <thead>
         <tr>
-          <th>Cabang Olahraga</th>
+          <th>Country Name</th>
         </tr>
       </thead>
       <tbody>
         <% athletes.forEach((athlete) => { %>
         <tr>
           <td>
-            <img src="<%= athlete.Sport.logo %>" class="px-2" />
-            <%= athlete.Sport.name %>
+            <img src="<%= athlete.Country.flagImage %>" class="px-2" />
           </td>
         </tr>
         <% }) %>

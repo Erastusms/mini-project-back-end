@@ -7,21 +7,23 @@ class CountryControllers {
         order: [["id", "ASC"]],
       });
       res.status(200).render("./country/countries.ejs", { countries });
+      // res.status(200).json(countries)
     } catch (err) {
       res.status(500).json(err);
     }
   }
 
-  static addCountryPage(req, res) {}
+  static addCountryPage(req, res) {
+    res.status(200).render("./country/countriesAdd.ejs");
+  }
 
   static async addCountry(req, res) {
     try {
-      const { name, flagImage } = req.body;
+      const { name } = req.body;
       let countries = await Country.create({
         name,
-        flagImage,
       });
-      res.status(201).json(countries);
+      res.status(201).redirect("/country")
     } catch (err) {
       res.status(500).json(err);
     }
@@ -32,11 +34,10 @@ class CountryControllers {
   static async updateCountry(req, res) {
     try {
       const id = +req.params.id;
-      const { name, flagImage } = req.body;
+      const { name } = req.body;
       let result = await Country.update(
         {
           name,
-          flagImage,
         },
         {
           where: { id },
@@ -65,9 +66,7 @@ class CountryControllers {
       });
 
       result === 1
-        ? res.status(200).json({
-            message: `Id ${id} has been removed`,
-          })
+        ? res.status(200).redirect("/country")
         : res.status(400).json({
             message: `Id ${id} failed to remove`,
           });

@@ -14,27 +14,51 @@
     <title>Athlete</title>
   </head>
   <body>
-    <h1 class="text-center display-4">LIST Athlete</h1>
+    <h1 class="text-center display-4">List Athlete</h1>
+    <center><a href="/">Return to Home</a></center>
+    
     <hr />
-    <table class="table table-hover">
+    <table class="table table-hover text-center">
       <thead>
         <tr>
-          <th class="text-center">Nama</th>
-          <th class="text-center">Negara</th>
-          <th>Cabang Olahraga</th>
+          <th>FullName</th>
+          <th>Country</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Sport</th>
+          <th>Edit Data</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
         <% athletes.forEach((athlete) => { %>
 
         <tr>
-          <td class="text-center"><%= athlete.first_name %> <%= athlete.last_name %></td>
-          <td class="text-center">
-            <img src="<%= athlete.Country.flagImage %>" height=24px width= 32px />  
-            <%= athlete.Country.code %></td>
+          <td><%= athlete.first_name %> <%= athlete.last_name %></td>
+          <td>
+            <img
+              src="<%= athlete.Country.flagImage %>"
+              height="24px"
+              width="32px"
+            />
+            <%= athlete.Country.code %>
+          </td>
+          <td><%= athlete.age %></td>
+          <td><%= athlete.gender %></td>
           <td>
             <img src="<%= athlete.Sport.logo %>" class="px-2" />
-            <%= athlete.Sport.name %>
+            <a href="/sport/detail/<%= athlete.Sport.name %>">
+              <%= athlete.Sport.name %>
+            </a>
+          </td>
+          <td>
+            <a href="/athlete/edit/<%= athlete.id %>">Edit Athlete</a>
+          </td>
+          <td>
+            <a href="/athlete/delete/<%= athlete.id %>"
+              ><img src="https://www.pinclipart.com/picdir/big/126-1261691_logo-eisenbahn-png-minus-button-icon-png-clipart.png" height="24px"
+              width="24px"
+            /></a>
           </td>
         </tr>
         <% }) %>

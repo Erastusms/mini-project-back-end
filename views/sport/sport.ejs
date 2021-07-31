@@ -15,6 +15,7 @@
   </head>
   <body>
     <h1 class="text-center display-4">LIST SPORT</h1>
+    <a href="/">Return to Home</a>
     <hr />
     <table class="table table-hover">
       <thead>
@@ -22,16 +23,28 @@
           <th>Sports</th>
           <th>Venue</th>
           <th>Status</th>
-          <th>Quota</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <% sports.forEach((sport) => { %>
         <tr>
-          <td><img src="<%= sport.logo %>" /> <a href="/sport/<%= sport.name %>"><%= sport.name %></a></td>
+          <td>
+            <img src="<%= sport.logo %>" />
+            <a href="/sport/detail/<%= sport.name %>"><%= sport.name %></a>
+          </td>
           <td><%= sport.venue %></td>
           <td><%= sport.status %></td>
-          <td><%= sport.quota %>/<%= sport.quota %></td>
+          <td>
+            <a
+              class="btn btn-primary btn-lg"
+              href="/sport/<%= sport.id %>/full"
+              role="button"
+              height="16px"
+              width="24px"
+              >Change to Finished</a
+            >
+          </td>
         </tr>
         <% }) %>
       </tbody>

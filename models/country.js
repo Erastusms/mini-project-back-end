@@ -14,11 +14,89 @@ module.exports = (sequelize, DataTypes) => {
   }
   Country.init(
     {
-      name: DataTypes.STRING,
-      code: DataTypes.STRING,
-      flagImage: DataTypes.STRING,
+      name: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+        },
+      },
+      code: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+        },
+      },
+      flagImage: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+        },
+      },
     },
     {
+      hooks: {
+        beforeCreate(countries, options) {
+          let countryName = countries.name;
+          let countryCode = [
+            "JPN",
+            "AUS",
+            "CRO",
+            "CZE",
+            "FRA",
+            "GER",
+            "HUN",
+            "SUI",
+            "BRA",
+            "NOR",
+            "GBR",
+            "THA",
+            "ESP",
+            "INA",
+            "BEL",
+            "UKR",
+            "TUR",
+            "ARG",
+            "FIN",
+            "POR",
+          ];
+
+          let name = [
+            "Japan",
+            "Australia",
+            "Croatia",
+            "Czech Republic",
+            "France",
+            "Germany",
+            "Hungary",
+            "Switzerland",
+            "Brazil",
+            "Norway",
+            "Great Britain",
+            "Thailand",
+            "Spain",
+            "Indonesia",
+            "Belgium",
+            "Ukraine",
+            "Turkey",
+            "Argentina",
+            "Finland",
+            "Portugal",
+          ];
+
+          for (let i = 0; i < name.length; i++) {
+            if (countryName === name[i]) {
+              countries.code = countryCode[i];
+              countries.flagImage = `https://olympics.com/tokyo-2020/olympic-games/resCOMMON/img/flags/${countryCode[i]}.png`;
+            }
+          }
+        }
+      },
       sequelize,
       modelName: "Country",
     }

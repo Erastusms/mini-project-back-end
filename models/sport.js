@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Sport extends Model {
     /**
@@ -13,19 +11,86 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Sport.belongsToMany(models.Country, { through: "models.Athlete" });
     }
-  };
-  Sport.init({
-    name: DataTypes.STRING,
-    logo: DataTypes.STRING,
-    status: DataTypes.STRING,
-    venue: DataTypes.STRING,
-    quota: DataTypes.INTEGER,
-    day: DataTypes.STRING,
-    date: DataTypes.STRING,
-    detail: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Sport',
-  });
+  }
+  Sport.init(
+    {
+      name: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+        },
+      },
+      logo: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+        },
+      },
+      status: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+        },
+      },
+      venue: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+        },
+      },
+      quota: {
+        type: DataTypes.INTEGER,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+          isNumeric: {
+            message: "This field must be a number",
+          },
+        },
+      },
+      day: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+        },
+      },
+      date: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+        },
+      },
+      detail: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+        },
+      },
+    },
+    {
+      hooks: {
+        beforeCreate(sport, options) {
+          sport.status = "Available";
+        },
+      },
+      sequelize,
+      modelName: "Sport",
+    }
+  );
   return Sport;
 };
