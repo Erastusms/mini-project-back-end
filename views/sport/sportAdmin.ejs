@@ -15,7 +15,7 @@
   </head>
   <body>
     <h1 class="text-center display-4">LIST SPORT</h1>
-    <center><a href="/">Return to Home</a></center>
+    <center><a href="/admin">Return to Admin Page</a></center>
     <hr />
     <table class="table table-hover">
       <thead>
@@ -24,6 +24,7 @@
           <th>Venue</th>
           <th>Status</th>
           <th>Quota</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -36,6 +37,16 @@
           <td><%= sport.venue %></td>
           <td><%= sport.status %></td>
           <td><%= sport.updatedQuota %>/<%= sport.quota %></td>
+          <td>
+            <a
+              class="btn btn-primary btn-lg"
+              href="/sport/admin/edit/<%= sport.name %>"
+              role="button"
+              height="16px"
+              width="24px"
+              >Edit</a
+            >
+          </td>
         </tr>
         <% }) %>
       </tbody>

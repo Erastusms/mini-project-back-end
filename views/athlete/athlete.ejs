@@ -21,7 +21,7 @@
     <table class="table table-hover text-center">
       <thead>
         <tr>
-          <th>FullName</th>
+          <th>Full Name</th>
           <th>Country</th>
           <th>Age</th>
           <th>Gender</th>
@@ -34,7 +34,7 @@
         <% athletes.forEach((athlete) => { %>
 
         <tr>
-          <td><%= athlete.first_name %> <%= athlete.last_name %></td>
+          <td><%= athlete.firstName %> <%= athlete.lastName %></td>
           <td>
             <img
               src="<%= athlete.Country.flagImage %>"

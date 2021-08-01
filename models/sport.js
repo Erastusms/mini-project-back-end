@@ -46,6 +46,17 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      updatedQuota: {
+        type: DataTypes.INTEGER,
+        validate: {
+          notEmpty: {
+            message: "This field can't be empty!",
+          },
+          isNumeric: {
+            message: "This field must be a number",
+          },
+        },
+      },
       quota: {
         type: DataTypes.INTEGER,
         validate: {
@@ -86,6 +97,11 @@ module.exports = (sequelize, DataTypes) => {
       hooks: {
         beforeCreate(sport, options) {
           sport.status = "Available";
+          sport.updatedQuota = sport.quota;
+        },
+        beforeUpdate(sport, options) {
+          sport.status = "Available";
+          sport.updatedQuota = sport.quota;
         },
       },
       sequelize,

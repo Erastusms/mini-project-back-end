@@ -15,28 +15,31 @@
   <body>
     <div class="container mt-5">
       <h1>FORM EDIT ATLIT</h1>
-      
-      <form class="form-inline" method="POST" action="/athlete/edit/<%= athletes.id %>">
-        
+
+      <form
+        class="form-inline"
+        method="POST"
+        action="/athlete/edit/<%= athletes.id %>"
+      >
         <div class="row">
           <div class="col">
-            <label for="first_name">First Name:</label>
+            <label for="firstName">First Name:</label>
             <input
               type="text"
               class="form-control"
-              name="name"
-              value="<%= athletes.first_name %>"
+              name="firstName"
+              value="<%= athletes.firstName %>"
               placeholder="First name"
               required
             />
           </div>
           <div class="col">
-            <label for="last_name">Last Name:</label>
+            <label for="lastName">Last Name:</label>
             <input
               type="text"
               class="form-control"
-              name="last_name"
-              value="<%= athletes.last_name %>"
+              name="lastName"
+              value="<%= athletes.lastName %>"
               placeholder="Last name"
               required
             />
@@ -68,12 +71,18 @@
           <div class="row">
             <label for="age" class="col-sm-1 col-form-label">Age : </label>
             <div class="col-sm-1">
-              <input type="number" class="form-control" name="age" value="<%= athletes.age %>" required/>
+              <input
+                type="number"
+                class="form-control"
+                name="age"
+                value="<%= athletes.age %>"
+                required
+              />
             </div>
           </div>
           <div>
-            <label for="sport_name">Sport Name : </label>
-            <select class="form-select" name="sport_name">
+            <label for="sportName">Sport Name : </label>
+            <select class="form-select" name="sportName">
               <option disabled selected value>-- Choose Sports --</option>
               <% sports.forEach(sport => { %>
               <option value="<%= sport.name %>"><%= sport.name %></option>

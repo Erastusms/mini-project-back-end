@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Athlete.init(
     {
-      first_name: {
+      firstName: {
         type: DataTypes.STRING,
         validate: {
           notEmpty: {
@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
-      last_name: {
+      lastName: {
         type: DataTypes.STRING,
         validate: {
           notEmpty: {

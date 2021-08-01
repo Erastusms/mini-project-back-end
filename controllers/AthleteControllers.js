@@ -5,11 +5,9 @@ class AthleteControllers {
     try {
       let athletes = await Athlete.findAll({
         include: [Country, Sport],
-        order: [["gender", "ASC"]],
       });
 
       res.status(200).render("./athlete/athlete.ejs", { athletes });
-      // res.status(200).json(athletes)
     } catch (err) {
       res.status(500).json(err);
     }
@@ -19,13 +17,13 @@ class AthleteControllers {
     try {
       let sports = await Sport.findAll({
         where: {
-          status: "Playing",
+          status: "Available",
         },
+        order: [["name", "ASC"]],
       });
       let country = req.params.countryName;
 
       res.status(201).render("./athlete/athleteAdd.ejs", { sports, country });
-      // res.status(200).json(athletes)
     } catch (err) {
       res.status(500).json(err);
     }
@@ -40,26 +38,37 @@ class AthleteControllers {
         },
       });
 
-      const { first_name, last_name, gender, age, sport_name } = req.body;
+      const { firstName, lastName, gender, age, sportName } = req.body;
+
       const sports = await Sport.findOne({
         where: {
-          name: sport_name,
+          name: sportName,
         },
       });
+
+      await sports.decrement({
+        updatedQuota: 1,
+      });
+
+      await Sport.update(
+        {
+          status: "Full",
+        },
+        { where: { updatedQuota: 0 } }
+      );
 
       let SportId = sports.id;
       let CountryId = countries.id;
 
-      let result = await Athlete.create({
-        first_name,
-        last_name,
+      await Athlete.create({
+        firstName,
+        lastName,
         gender,
         age,
         CountryId,
         SportId,
       });
       res.status(201).redirect("/country");
-      // res.status(201).json(result)
     } catch (err) {
       res.status(500).json(err);
     }
@@ -73,7 +82,7 @@ class AthleteControllers {
           id,
         },
       });
-      let sports = await Sport.findAll()
+      let sports = await Sport.findAll();
       res.render("./athlete/athleteUpdate.ejs", { athletes, sports });
     } catch (err) {
       res.status(500).json(err);
@@ -82,32 +91,31 @@ class AthleteControllers {
   static async updateAthlete(req, res) {
     try {
       const id = +req.params.id;
-      const { first_name, last_name, gender, age, sport_name } = req.body;
+      const { firstName, lastName, gender, age, sportName } = req.body;
       const sports = await Sport.findOne({
         where: {
-          name: sport_name,
+          name: sportName,
         },
       });
 
       let SportId = sports.id;
       let result = await Athlete.update(
         {
-          first_name,
-          last_name,
+          firstName,
+          lastName,
           gender,
           age,
-          sport_name,
           SportId,
         },
         {
-          where: { id },
+          where: { id: id },
         }
       );
 
       result[0] === 1
         ? res.status(200).json({
-          message: `Id ${id} has been updated!`
-        })
+            message: `Id ${id} has been updated!`,
+          })
         : res.status(400).json({
             message: `id ${id} failed to update`,
           });
@@ -132,7 +140,6 @@ class AthleteControllers {
           CountryId,
         },
         include: [Country, Sport],
-        order: [["gender", "ASC"]],
       });
       res.status(200).render("./athlete/athlete.ejs", { athletes });
     } catch (err) {
@@ -183,7 +190,6 @@ class AthleteControllers {
       res
         .status(200)
         .render("./country/countryBySport.ejs", { sports, athletes });
-      // res.status(200).json(athletes)
     } catch (err) {
       res.status(500).json(err);
     }
@@ -192,6 +198,29 @@ class AthleteControllers {
     try {
       const id = +req.params.id;
 
+      let athletes = await Athlete.findOne({
+        where: { id },
+        include: [Country, Sport],
+      });
+
+      let sportName = athletes.Sport.name;
+
+      let sports = await Sport.findOne({
+        where: {
+          name: sportName,
+        },
+      });
+
+      await sports.increment({
+        updatedQuota: 1,
+      });
+
+      await sports.update(
+        {
+          status: "Available",
+        },
+        { where: { updatedQuota: 1 } }
+      );
       let result = await Athlete.destroy({
         where: { id },
       });

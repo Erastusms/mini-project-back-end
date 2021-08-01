@@ -20,6 +20,9 @@ module.exports = {
       venue: {
         type: Sequelize.STRING
       },
+      updatedQuota: {
+        type: Sequelize.INTEGER
+      },
       quota: {
         type: Sequelize.INTEGER
       },
