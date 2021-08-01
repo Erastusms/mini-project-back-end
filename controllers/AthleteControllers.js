@@ -23,7 +23,7 @@ class AthleteControllers {
       });
       let country = req.params.countryName;
 
-      res.status(201).render("./athlete/athleteAdd.ejs", { sports, country });
+      res.status(200).render("./athlete/athleteAdd.ejs", { sports, country });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -113,9 +113,7 @@ class AthleteControllers {
       );
 
       result[0] === 1
-        ? res.status(200).json({
-            message: `Id ${id} has been updated!`,
-          })
+        ? res.status(200).render("./athlete/athlete.ejs")
         : res.status(400).json({
             message: `id ${id} failed to update`,
           });
@@ -194,6 +192,7 @@ class AthleteControllers {
       res.status(500).json(err);
     }
   }
+
   static async removeAthlete(req, res) {
     try {
       const id = +req.params.id;
