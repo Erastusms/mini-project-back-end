@@ -21,22 +21,22 @@ Get all Country
 
     ```json
     [
-        {
-            "id": "<country.id>",
-            "name": "<country.name>",
-            "code": "<country.password>",
-            "flagImage": "<country.flagImage>",
-            "updatedAt": "<country.updatedAt>",
-            "createdAt": "<country.createdAt>"
-        }
+      {
+        "id": "<country.id>",
+        "name": "<country.name>",
+        "code": "<country.password>",
+        "flagImage": "<country.flagImage>",
+        "updatedAt": "<country.updatedAt>",
+        "createdAt": "<country.createdAt>"
+      }
     ]
     ```
 
-    - Failure (500) :
+  - Failure (500) :
 
     ```json
     {
-        "message": "<internal_server_error>"
+      "message": "<internal_server_error>"
     }
     ```
 
@@ -49,12 +49,12 @@ GET page add Country
   - Request Header : none
   - Request Body : none
 
-   ```json
-    {
-        "email": "<country.email>",
-        "password": "<country.password>"
-    }
-    ```
+  ```json
+  {
+    "email": "<country.email>",
+    "password": "<country.password>"
+  }
+  ```
 
 - Response
 
@@ -62,7 +62,7 @@ GET page add Country
 
     ```json
     {
-        "message": "<ok>"
+      "message": "<ok>"
     }
     ```
 
@@ -75,11 +75,11 @@ POST add Country
   - Request Header : none
   - Request Body :
 
-   ```json
-    {
-        "name": "<country.name>"
-    }
-    ```
+  ```json
+  {
+    "name": "<country.name>"
+  }
+  ```
 
 - Response
 
@@ -87,14 +87,15 @@ POST add Country
 
     ```json
     {
-        "message": "<created>"
+      "message": "<created>"
     }
     ```
+
   - Failure (500) :
 
     ```json
     {
-        "message": "<internal_server_error>"
+      "message": "<internal_server_error>"
     }
     ```
 
@@ -108,11 +109,11 @@ GET delete Country by id
   - Request Body : none
   - Request Params :
 
-   ```json
-    {
-        "id": "<country.id>"
-    }
-    ```
+  ```json
+  {
+    "id": "<country.id>"
+  }
+  ```
 
 - Response
 
@@ -120,7 +121,7 @@ GET delete Country by id
 
     ```json
     {
-        "message": "<ok>"
+      "message": "<ok>"
     }
     ```
 
@@ -128,7 +129,7 @@ GET delete Country by id
 
     ```json
     {
-        "message": "<Id failed to remove>"
+      "message": "<Id failed to remove>"
     }
     ```
 
@@ -136,7 +137,7 @@ GET delete Country by id
 
     ```json
     {
-        "message": "<internal_server_error>"
+      "message": "<internal_server_error>"
     }
     ```
 
@@ -155,31 +156,31 @@ Get all Sport
 
     ```json
     [
-        {
-            "id": "<sport.id>",
-            "name": "<sport.name>",
-            "logo": "<sport.logo>",
-            "status": "<sport.status>",
-            "venue": "<sport.venue>",
-            "updatedQuota": "<sport.updatedQuota>",
-            "quota": "<sport.quota>",
-            "day": "<sport.day>",
-            "date": "<sport.date>",
-            "detail": "<sport.detail>",
-            "updatedAt": "<sport.updatedAt>",
-            "createdAt": "<sport.createdAt>"
-        }
+      {
+        "id": "<sport.id>",
+        "name": "<sport.name>",
+        "logo": "<sport.logo>",
+        "status": "<sport.status>",
+        "venue": "<sport.venue>",
+        "updatedQuota": "<sport.updatedQuota>",
+        "quota": "<sport.quota>",
+        "day": "<sport.day>",
+        "date": "<sport.date>",
+        "detail": "<sport.detail>",
+        "updatedAt": "<sport.updatedAt>",
+        "createdAt": "<sport.createdAt>"
+      }
     ]
     ```
 
-    - Failure (500) :
+  - Failure (500) :
 
     ```json
     {
-        "message": "<internal_server_error>"
+      "message": "<internal_server_error>"
     }
     ```
-  
+
 ### GET /sport/detail/:sportName
 
 Get detail Sport by sportName
@@ -190,11 +191,11 @@ Get detail Sport by sportName
   - Request Body : none
   - Request Params :
 
-   ```json
-    {
-        "name": "<sport.name>"
-    }
-    ```
+  ```json
+  {
+    "name": "<sport.name>"
+  }
+  ```
 
 - Response
 
@@ -202,7 +203,7 @@ Get detail Sport by sportName
 
     ```json
     {
-        "message": "<ok>"
+      "message": "<ok>"
     }
     ```
 
@@ -210,7 +211,7 @@ Get detail Sport by sportName
 
     ```json
     {
-        "message": "<internal_server_error>"
+      "message": "<internal_server_error>"
     }
     ```
 
@@ -224,11 +225,11 @@ Get delete Sport by id
   - Request Body : none
   - Request Params :
 
-   ```json
-    {
-        "id": "<sport.id>"
-    }
-    ```
+  ```json
+  {
+    "id": "<sport.id>"
+  }
+  ```
 
 - Response
 
@@ -236,7 +237,7 @@ Get delete Sport by id
 
     ```json
     {
-        "message": "<ok>"
+      "message": "<ok>"
     }
     ```
 
@@ -244,7 +245,7 @@ Get delete Sport by id
 
     ```json
     {
-        "message": "<Id failed to remove>"
+      "message": "<Id failed to remove>"
     }
     ```
 
@@ -252,10 +253,9 @@ Get delete Sport by id
 
     ```json
     {
-        "message": "<internal_server_error>"
+      "message": "<internal_server_error>"
     }
     ```
-
 
 ### GET /sport/admin
 
@@ -272,7 +272,7 @@ Get all Sport with button edit
 
     ```json
     {
-        "message": "<ok>"
+      "message": "<ok>"
     }
     ```
 
@@ -280,7 +280,7 @@ Get all Sport with button edit
 
     ```json
     {
-        "message": "<internal_server_error>"
+      "message": "<internal_server_error>"
     }
     ```
 
@@ -299,7 +299,7 @@ GET page add Sport
 
     ```json
     {
-        "message": "<ok>"
+      "message": "<ok>"
     }
     ```
 
@@ -307,7 +307,7 @@ GET page add Sport
 
     ```json
     {
-        "message": "<internal_server_error>"
+      "message": "<internal_server_error>"
     }
     ```
 
@@ -320,19 +320,19 @@ POST add Sport
   - Request Header : none
   - Request Body :
 
-   ```json
-    [
-        {
-            "name": "<sport.name>",
-            "logo": "<sport.logo>",
-            "venue": "<sport.venue>",
-            "quota": "<sport.quota>",
-            "day": "<sport.day>",
-            "date": "<sport.date>",
-            "detail": "<sport.detail>",
-        }
-    ]
-    ```
+  ```json
+  [
+    {
+      "name": "<sport.name>",
+      "logo": "<sport.logo>",
+      "venue": "<sport.venue>",
+      "quota": "<sport.quota>",
+      "day": "<sport.day>",
+      "date": "<sport.date>",
+      "detail": "<sport.detail>"
+    }
+  ]
+  ```
 
 - Response
 
@@ -340,17 +340,17 @@ POST add Sport
 
     ```json
     {
-        "message": "<created>"
+      "message": "<created>"
     }
     ```
+
   - Failure (500) :
 
     ```json
     {
-        "message": "<internal_server_error>"
+      "message": "<internal_server_error>"
     }
     ```
-
 
 ### GET /sport/admin/edit/:sportName
 
@@ -360,8 +360,13 @@ Get page edit Sport
 
   - Request Header : none
   - Request Body : none
-  - Request Params : 
+  - Request Params :
 
+    ```json
+    {
+      "name": "<sport.name>"
+    }
+    ```
 
 - Response
 
@@ -369,7 +374,7 @@ Get page edit Sport
 
     ```json
     {
-        "message": "<ok>"
+      "message": "<ok>"
     }
     ```
 
@@ -377,7 +382,7 @@ Get page edit Sport
 
     ```json
     {
-        "message": "<internal_server_error>"
+      "message": "<internal_server_error>"
     }
     ```
 
@@ -390,28 +395,149 @@ POST edit Sport
   - Request Header : none
   - Request Body :
 
-   ```json
-    [
-        {
-            "name": "<sport.name>",
-            "logo": "<sport.logo>",
-            "venue": "<sport.venue>",
-            "quota": "<sport.quota>",
-            "day": "<sport.day>",
-            "date": "<sport.date>",
-            "detail": "<sport.detail>",
-        }
-    ]
-    ```
+  ```json
+  [
+    {
+      "name": "<sport.name>",
+      "logo": "<sport.logo>",
+      "venue": "<sport.venue>",
+      "quota": "<sport.quota>",
+      "day": "<sport.day>",
+      "date": "<sport.date>",
+      "detail": "<sport.detail>"
+    }
+  ]
+  ```
 
   - Request Params :
 
-   ```json
+  ```json
+  [
+    {
+      "name": "<sport.name>"
+    }
+  ]
+  ```
+
+- Response
+
+  - (200) :
+
+    ```json
+    {
+      "message": "<ok>"
+    }
+    ```
+
+  - (400) :
+
+    ```json
+    {
+      "message": "<sport_name failed to update>"
+    }
+    ```
+
+  - Failure (500) :
+
+    ```json
+    {
+      "message": "<internal_server_error>"
+    }
+    ```
+
+### GET /athlete
+
+GET all Athlete
+
+- Request
+
+  - Request Header : none
+  - Request Body : none
+
+- Response
+
+  - Success (200)
+
+    ```json
     [
-        {
-            "name": "<sport.name>",
-        }
+      {
+        "id": "<athlete.id>",
+        "firstName": "<athlete.firstName>",
+        "lastName": "<athlete.lastName>",
+        "gender": "<athlete.gender>",
+        "age": "<athlete.age>",
+        "CountryId": "<athlete.CountryId>",
+        "SportId": "<athlete.SportId>"
+      }
     ]
+    ```
+
+  - Failure (500) :
+
+    ```json
+    {
+      "message": "<internal_server_error>"
+    }
+    ```
+
+### GET /athlete/:countryName
+
+GET all Athlete by countryName
+
+- Request
+
+  - Request Header : none
+  - Request Body : none
+  - Request Params :
+
+    ```json
+    [
+      {
+        "name": "<country.name>"
+      }
+    ]
+    ```
+
+- Response
+
+  - Success (200)
+
+    ```json
+    [
+      {
+        "id": "<athlete.id>",
+        "firstName": "<athlete.firstName>",
+        "lastName": "<athlete.lastName>",
+        "gender": "<athlete.gender>",
+        "age": "<athlete.age>",
+        "CountryId": "<athlete.CountryId>",
+        "SportId": "<athlete.SportId>"
+      }
+    ]
+    ```
+
+  - Failure (500) :
+
+    ```json
+    {
+      "message": "<internal_server_error>"
+    }
+    ```
+
+### GET /athlete/:countryName/add
+
+GET page add Athlete by countryName
+
+- Request
+
+  - Request Header : none
+  - Request Body : none
+  - Request Params :
+
+    ```json
+    {
+      "name": "<country.name>"
+    }
     ```
 
 - Response
@@ -420,15 +546,7 @@ POST edit Sport
 
     ```json
     {
-        "message": "<ok>"
-    }
-    ```
-
-  - (400) :
-
-    ```json
-    {
-        "message": "<sport_name failed to update>"
+      "message": "<ok>"
     }
     ```
 
@@ -436,43 +554,267 @@ POST edit Sport
 
     ```json
     {
-        "message": "<internal_server_error>"
+      "message": "<internal_server_error>"
     }
-    ````
+    ```
 
-### GET /users/:id
+### POST /athlete/:countryName/add
 
-### POST /users/update/:id
+POST add Athlete by countryName
 
-### POST /users/delete/:id
+- Request
 
-
-  - (403) : Invalid input
-
-  ```json
-  {
-    "message": "<Invalid input>"
-  }
-  ```
-
-  - (404) : User not found
+  - Request Header : none
+  - Request Body :
 
   ```json
-  {
-    "message": "<User not found>"
-  }
+  [
+    {
+      "firstName": "<athlete.firstName>",
+      "lastName": "<athlete.lastName>",
+      "gender": "<athlete.gender>",
+      "age": "<athlete.age>",
+      "name": "<sport.name>"
+    }
+  ]
   ```
 
-  - (500) : Internal Server Error
+  - Request Params :
 
   ```json
-  {
-    "message": "<Internal Server Error>"
-  }
+  [
+    {
+      "name": "<country.name>"
+    }
+  ]
   ```
 
-### GET /users/:id
+- Response
 
-### POST /users/update/:id
+  - (201) :
 
-### POST /users/delete/:id
+    ```json
+    {
+      "message": "<created>"
+    }
+    ```
+
+  - Failure (500) :
+
+    ```json
+    {
+      "message": "<internal_server_error>"
+    }
+    ```
+
+### GET /athlete/:countryName/sport
+
+GET sport Athlete by countryName
+
+- Request
+
+  - Request Header : none
+  - Request Body : none
+
+  - Request Params :
+
+  ```json
+  [
+    {
+      "name": "<country.name>"
+    }
+  ]
+  ```
+
+- Response
+
+  - (200) :
+
+    ```json
+    {
+      "message": "<ok>"
+    }
+    ```
+
+  - Failure (500) :
+
+    ```json
+    {
+      "message": "<internal_server_error>"
+    }
+    ```
+
+### GET /athlete/participant/:sportName
+
+GET participant Athlete by sportName
+
+- Request
+
+  - Request Header : none
+  - Request Body : none
+
+  - Request Params :
+
+  ```json
+  [
+    {
+      "name": "<sport.name>"
+    }
+  ]
+  ```
+
+- Response
+
+  - (200) :
+
+    ```json
+    {
+      "message": "<ok>"
+    }
+    ```
+
+  - Failure (500) :
+
+    ```json
+    {
+      "message": "<internal_server_error>"
+    }
+    ```
+
+### GET /athlete/edit/:id
+
+GET page edit Athlete by id
+
+- Request
+
+  - Request Header : none
+  - Request Body : none
+
+  - Request Params :
+
+  ```json
+  [
+    {
+      "id": "<athlete.id>"
+    }
+  ]
+  ```
+
+- Response
+
+  - (200) :
+
+    ```json
+    {
+      "message": "<ok>"
+    }
+    ```
+
+  - Failure (500) :
+
+    ```json
+    {
+      "message": "<internal_server_error>"
+    }
+    ```
+
+### POST /athlete/edit/:id
+
+POST edit Athlete by id
+
+- Request
+
+  - Request Header : none
+  - Request Body :
+
+  ```json
+  [
+    {
+      "firstName": "<athlete.firstName>",
+      "lastName": "<athlete.lastName>",
+      "gender": "<athlete.gender>",
+      "age": "<athlete.age>",
+      "name": "<sport.name>"
+    }
+  ]
+  ```
+
+  - Request Params :
+
+  ```json
+  [
+    {
+      "id": "<athlete.id>"
+    }
+  ]
+  ```
+
+- Response
+
+  - (200) :
+
+    ```json
+    {
+      "message": "<ok>"
+    }
+    ```
+
+  - (400) :
+
+    ```json
+    {
+      "message": "<id failed to update>"
+    }
+    ```
+
+  - Failure (500) :
+
+    ```json
+    {
+      "message": "<internal_server_error>"
+    }
+    ```
+
+### GET /athlete/delete/:id
+
+GET delete Athlete by id
+
+- Request
+
+  - Request Header : none
+  - Request Body : none
+  - Request Params :
+
+  ```json
+  [
+    {
+      "id": "<athlete.id>"
+    }
+  ]
+  ```
+
+- Response
+
+  - (200) :
+
+    ```json
+    {
+      "message": "<ok>"
+    }
+    ```
+
+  - (400) :
+
+    ```json
+    {
+      "message": "<id failed to remove>"
+    }
+    ```
+
+  - Failure (500) :
+
+    ```json
+    {
+      "message": "<internal_server_error>"
+    }
+    ```
