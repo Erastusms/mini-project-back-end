@@ -111,9 +111,7 @@ class SportControllers {
         where: { id },
       });
       result === 1
-        ? res.status(200).json({
-            message: `Id ${id} has been removed`,
-          })
+        ? res.status(200).redirect("/sport/admin")
         : res.status(400).json({
             message: `id ${id} failed to remove`,
           });

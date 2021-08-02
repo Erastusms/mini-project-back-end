@@ -42,9 +42,13 @@
               class="btn btn-primary btn-lg"
               href="/sport/admin/edit/<%= sport.name %>"
               role="button"
-              height="16px"
-              width="24px"
               >Edit</a
+            >
+            <a
+              href="/sport/delete/<%= sport.id %>"
+              class="btn btn-primary btn-lg"
+              onclick="alert('Sport has been removed!')"
+              >Delete</a
             >
           </td>
         </tr>
