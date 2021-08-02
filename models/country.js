@@ -93,7 +93,7 @@ module.exports = (sequelize, DataTypes) => {
             if (countryName === name[i]) {
               countries.code = countryCode[i];
               countries.flagImage = `https://olympics.com/tokyo-2020/olympic-games/resCOMMON/img/flags/${countryCode[i]}.png`;
-            }
+            } 
           }
         }
       },

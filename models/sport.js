@@ -99,10 +99,6 @@ module.exports = (sequelize, DataTypes) => {
           sport.status = "Available";
           sport.updatedQuota = sport.quota;
         },
-        beforeUpdate(sport, options) {
-          sport.status = "Available";
-          sport.updatedQuota = sport.quota;
-        },
       },
       sequelize,
       modelName: "Sport",

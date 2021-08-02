@@ -5,6 +5,7 @@ class AthleteControllers {
     try {
       let athletes = await Athlete.findAll({
         include: [Country, Sport],
+        order: [["gender", "DESC"]]
       });
 
       res.status(200).render("./athlete/athlete.ejs", { athletes });
